@@ -1,34 +1,44 @@
-import React from 'react';
-import {Button, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import React, {useEffect} from 'react';
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  StatusBar,
+  useColorScheme,
+} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
-GoogleSignin.configure({
-  webClientId:
-    '362081977337-hsqgab52ddhlf1i2d788cqn3hv576nq8.apps.googleusercontent.com',
-});
-
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      // TODO: that webClientId just for android. for using it in iOS need to re-setup native part
+      webClientId:
+        '257426262564-0e4a62d0h3ilpueg37jve43unmj5frf9.apps.googleusercontent.com',
+    });
+  });
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   const onGoogleButtonPress = async () => {
-    // Get the users ID token
-    const {idToken} = await GoogleSignin.signIn();
+    try {
+      const {idToken} = await GoogleSignin.signIn();
 
-    console.log('idToken', idToken);
+      // Create a Google credential with the token
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
-    // Create a Google credential with the token
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
-    return auth().signInWithCredential(googleCredential);
+      // Sign-in the user with the credential
+      return auth().signInWithCredential(googleCredential);
+    } catch (e) {
+      Alert.alert('', JSON.stringify(e));
+    }
   };
 
   return (
