@@ -4,7 +4,10 @@ import {
   Button,
   SafeAreaView,
   StatusBar,
+  Text,
+  TouchableOpacity,
   useColorScheme,
+  View,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
@@ -17,9 +20,8 @@ const App = () => {
 
   useEffect(() => {
     GoogleSignin.configure({
-      // TODO: that webClientId just for android. for using it in iOS need to re-setup native part
       webClientId:
-        '257426262564-0e4a62d0h3ilpueg37jve43unmj5frf9.apps.googleusercontent.com',
+        '1095826669424-7am76k7v1sm6nu7kvvsl22uing484tkr.apps.googleusercontent.com',
     });
   });
 
@@ -41,17 +43,33 @@ const App = () => {
     }
   };
 
+  const signOut = async () => {
+    await GoogleSignin.signOut();
+    console.log('sign out');
+  };
+
+  const userInfo = async () => {
+    const user = await GoogleSignin.getCurrentUser();
+    console.log('userInfo', user);
+  };
+
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Button
-        title="Google Sign-In"
-        onPress={() =>
-          onGoogleButtonPress().then(() =>
-            console.log('Signed in with Google!'),
-          )
-        }
-      />
+    <SafeAreaView style={[backgroundStyle, {flex: 1}]}>
+      <View style={{justifyContent: 'center', flex: 1}}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <Button
+          title="Google Sign-In"
+          onPress={() =>
+            onGoogleButtonPress().then(() =>
+              console.log('Signed in with Google!'),
+            )
+          }
+        />
+        <View style={{height: 50}} />
+        <Button title="Google Sign Out" onPress={signOut} />
+        <View style={{height: 50}} />
+        <Button title="User Info" onPress={userInfo} />
+      </View>
     </SafeAreaView>
   );
 };

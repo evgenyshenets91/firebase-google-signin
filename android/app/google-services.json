@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "257426262564",
-    "project_id": "rnsignin-aef3e",
-    "storage_bucket": "rnsignin-aef3e.appspot.com"
+    "project_number": "1095826669424",
+    "project_id": "signin-14d6a",
+    "storage_bucket": "signin-14d6a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:257426262564:android:59d5cca598a4149150e6b1",
+        "mobilesdk_app_id": "1:1095826669424:android:9ca1a332fdb75be63959b5",
         "android_client_info": {
           "package_name": "com.reactnativesignin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "257426262564-dgs3ipced4qihjf3r4upa6oh1otcgrhl.apps.googleusercontent.com",
+          "client_id": "1095826669424-4ltfq9ua1205t3u1q9p69s4u8senfmg7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.reactnativesignin",
-            "certificate_hash": "afbb16ed2122c01bdeef830f98ec765a8ab0ebfd"
+            "certificate_hash": "4e7517c18fd5dba26b7b797d6a5d40f19dbccb19"
           }
         },
         {
-          "client_id": "257426262564-0e4a62d0h3ilpueg37jve43unmj5frf9.apps.googleusercontent.com",
+          "client_id": "1095826669424-7am76k7v1sm6nu7kvvsl22uing484tkr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB8Rr9lTxhtH14ymeYAjNrCdw0ZhBE1iNM"
+          "current_key": "AIzaSyCTjJRlaUe84SA8se6H4BgYHFPq3oa1G3c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "257426262564-0e4a62d0h3ilpueg37jve43unmj5frf9.apps.googleusercontent.com",
+              "client_id": "1095826669424-7am76k7v1sm6nu7kvvsl22uing484tkr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
